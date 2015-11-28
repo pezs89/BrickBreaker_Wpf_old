@@ -1,0 +1,12 @@
+﻿<Window x:Class="BrickBreaker.Drawer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Drawer" Height="500" Width="1000" Icon="Resources/Concrete_wall.jpg"
+        KeyDown="Window_KeyDown" Loaded="Window_Loaded" MouseLeftButtonDown="Window_MouseLeftButtonDown" Background="Black">
+    <Grid>
+        <Canvas x:Name="canvasLayer" Margin="0,0,0,0" Width="970" MouseMove="canvasLayer_MouseMove" Height="450" />
+        <Label x:Name="ScoreLabel" Content="Score:" HorizontalAlignment="Left" Margin="500,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LifeLabel" Content="Life:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="TimeLabel" Content="Time:" HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
