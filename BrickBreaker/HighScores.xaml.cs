@@ -30,7 +30,7 @@ namespace BrickBreaker
             HighScore.Create("", 0);
             highscore.OrderBy();
 
-            var xml = XDocument.Load("Scores.xml").Root;           
+            var xml = XDocument.Load(@"..\..\Resources\Scores.xml").Root;
             dataGrid1.DataContext = xml;           
 
             PressKeyTxtBlock.Text = "Press ESC to continue...";

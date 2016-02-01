@@ -69,7 +69,7 @@ namespace BrickBreaker
         /// </summary>
         public void Create(string playerName, int playerScore)
         {
-            if (!File.Exists("Scores.xml"))
+            if (!File.Exists(@"..\..\Resources\Scores.xml"))
             {
                 if (!string.IsNullOrEmpty(playerName))
                 {
@@ -81,7 +81,7 @@ namespace BrickBreaker
                 XElement Score = new XElement("Score", playerScore.ToString());
                 XElement newElement = new XElement("Datas", Data, Name, Score);
                 XDocument newXML = new XDocument(newElement);
-                newXML.Save("Scores.xml");
+                newXML.Save(@"..\..\Resources\Scores.xml");
                 
             }
         }
@@ -93,9 +93,9 @@ namespace BrickBreaker
         /// <param name="points">The points.</param>
         public void InjectiontoXML(string name, int points)
         {
-            if (!File.Exists("Scores.xml"))
+            if (!File.Exists(@"..\..\Resources\Scores.xml"))
             {
-                XDocument settingsFromXml = XDocument.Load("Scores.xml");
+                XDocument settingsFromXml = XDocument.Load(@"..\..\Resources\Scores.xml");
                 var readDataFromXml = settingsFromXml.Descendants("Data");
                 var fromXml = from x in readDataFromXml
                               select x;
@@ -113,7 +113,7 @@ namespace BrickBreaker
                 {
                     // Only add a new record if there are less than 10.
                     settingsFromXml.Root.Add(new XElement("Data", new XAttribute("ID", idNumber++), new XElement("Name", name), new XElement("Score", points)));
-                    settingsFromXml.Save("Scores.xml");
+                    settingsFromXml.Save(@"..\..\Resources\Scores.xml");
                 }
                 else
                 {
@@ -130,7 +130,7 @@ namespace BrickBreaker
                     }
                     // Overwrite the minimum element.
 
-                    settingsFromXml.Save("OptionsSettings.xml");
+                    settingsFromXml.Save(@"..\..\Resources\Scores.xml");
                     // Save the changes in the values of the xml.
                 }
             }
@@ -146,7 +146,7 @@ namespace BrickBreaker
         /// </summary>
         public void OrderBy()
         {
-            XElement root = XElement.Load("Scores.xml");
+            XElement root = XElement.Load(@"..\..\Resources\Scores.xml");
             var scores = root.Elements("Data").OrderByDescending(xtab => (int)xtab.Element("Score")).ToArray();
             root.RemoveAll();
 
@@ -158,7 +158,7 @@ namespace BrickBreaker
                 root.Add(score);
             }
 
-            root.Save("Scores.xml");
+            root.Save(@"..\..\Resources\Scores.xml");
         }
 
         #endregion Methods

@@ -34,7 +34,7 @@ namespace BrickBreaker
         {
             try
             {
-                if (!File.Exists("OptionsSettings.xml"))
+                if (!File.Exists(@"..\..\Resources\OptionsSettings.xml"))
                 {
                     XElement mouseElement = new XElement("mouse", "true");
                     XElement keyboardElement = new XElement("keyboard", "true");
@@ -50,7 +50,7 @@ namespace BrickBreaker
                     XElement newElements = new XElement("option", newAttribute, mouseElement, keyboardElement, soundElement, resolutionElement, leftkeyElement, rightkeyElement, firekeyElement, pausekeyElement, difficultyElement, mapElement);
                     XElement newOptions = new XElement("Options", newElements);
                     XDocument newDocument = new XDocument(newOptions);
-                    newDocument.Save("OptionsSettings.xml");
+                    newDocument.Save(@"..\..\Resources\OptionsSettings.xml");
                 }
                 // If the file doesn't exist, then create a new.
             }

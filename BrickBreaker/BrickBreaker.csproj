@@ -154,17 +154,47 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\maps\FifthMap.txt" />
+    <Resource Include="Resources\maps\FirstMap.txt" />
+    <Resource Include="Resources\maps\FourthMap.txt" />
+    <Resource Include="Resources\maps\SecondMap.txt" />
+    <Resource Include="Resources\maps\ThirdMap.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Resources\Concrete_wall.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\firstmap.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\fifthmap.jpg" />
+    <Resource Include="Resources\firstmap.jpg" />
     <Resource Include="Resources\fourthmap.jpg" />
+    <Resource Include="Resources\OptionsSettings.xml" />
+    <Resource Include="Resources\Scores.xml" />
     <Resource Include="Resources\secondmap.jpg" />
     <Resource Include="Resources\thirdmap.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\media\ball\hardball.jpg" />
+    <Resource Include="Resources\media\ball\normalball.jpg" />
+    <Resource Include="Resources\media\ball\steelball.jpg" />
+    <Resource Include="Resources\media\bonus\ballbigger.jpg" />
+    <Resource Include="Resources\media\bonus\ballsmaller.jpg" />
+    <Resource Include="Resources\media\bonus\hardball.jpg" />
+    <Resource Include="Resources\media\bonus\lifedown.jpg" />
+    <Resource Include="Resources\media\bonus\lifeup.jpg" />
+    <Resource Include="Resources\media\bonus\newball.jpg" />
+    <Resource Include="Resources\media\bonus\racketlengthen.jpg" />
+    <Resource Include="Resources\media\bonus\racketshorten.jpg" />
+    <Resource Include="Resources\media\bonus\steelball.jpg" />
+    <Resource Include="Resources\media\bonus\stickyracket.jpg" />
+    <Resource Include="Resources\media\brick\brokenhardbrick.jpg" />
+    <Resource Include="Resources\media\brick\brokenmediumbrick.jpg" />
+    <Resource Include="Resources\media\brick\easybrick.jpg" />
+    <Resource Include="Resources\media\brick\hardbrick.jpg" />
+    <Resource Include="Resources\media\brick\mediumbrick.jpg" />
+    <Resource Include="Resources\media\brick\steelbrick.jpg" />
+    <Resource Include="Resources\media\racket\normalracket.jpg" />
+    <Resource Include="Resources\media\racket\stickyracket.jpg" />
+    <Content Include="Resources\media\sounds\play_this.mp3" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -89,7 +89,7 @@ namespace BrickBreaker
         {
             try
             {
-                XDocument settingsFromXml = XDocument.Load("OptionsSettings.xml");
+                XDocument settingsFromXml = XDocument.Load(@"..\..\Resources\OptionsSettings.xml");
                 var readDataFromXml = settingsFromXml.Descendants("option");
                 var fromXml = from x in readDataFromXml
                               select x;
@@ -137,7 +137,7 @@ namespace BrickBreaker
                 }
                 // If the values from the xml doesn't match the values from the OptionSettings object, than refresh the the xml values.
 
-                settingsFromXml.Save("OptionsSettings.xml");
+                settingsFromXml.Save(@"..\..\Resources\OptionsSettings.xml");
                 // Save the changes in the values of the xml.
 
                 LabelHide.Start();
@@ -615,7 +615,7 @@ namespace BrickBreaker
 
             try
             {
-                if (!File.Exists("OptionsSettings.xml"))
+                if (!File.Exists(@"..\..\Resources\OptionsSettings.xml"))
                 {
                     XElement mouseElement = new XElement("mouse", "true");
                     XElement keyboardElement = new XElement("keyboard", "true");
@@ -631,11 +631,11 @@ namespace BrickBreaker
                     XElement newElements = new XElement("option", newAttribute, mouseElement, keyboardElement, soundElement, resolutionElement, leftkeyElement, rightkeyElement, firekeyElement, pausekeyElement, difficultyElement, mapElement);
                     XElement newOptions = new XElement("Options", newElements);
                     XDocument newDocument = new XDocument(newOptions);
-                    newDocument.Save("OptionsSettings.xml");
+                    newDocument.Save(@"..\..\Resources\OptionsSettings.xml");
                 }
                 // If the file doesn't exist, then create a new.
 
-                XDocument settingsFromXml = XDocument.Load("OptionsSettings.xml");
+                XDocument settingsFromXml = XDocument.Load(@"..\..\Resources\OptionsSettings.xml");
                 var readDataFromXml = settingsFromXml.Descendants("option");
                 var fromXml = from x in readDataFromXml
                               select x;

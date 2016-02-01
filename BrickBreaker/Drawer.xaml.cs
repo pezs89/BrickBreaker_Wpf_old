@@ -257,7 +257,7 @@ namespace BrickBreaker
 
             try
             {
-                if (!File.Exists("OptionsSettings.xml"))
+                if (!File.Exists(@"..\..\Resources\OptionsSettings.xml"))
                 {
                     if (MessageBox.Show("Couldn't find the xml file for the settings. \n Would you like to create a new with default settings?", "Error", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                     {
@@ -275,14 +275,14 @@ namespace BrickBreaker
                         XElement newElements = new XElement("option", newAttribute, mouseElement, keyboardElement, soundElement, resolutionElement, leftkeyElement, rightkeyElement, firekeyElement, pausekeyElement, difficultyElement, mapElement);
                         XElement newOptions = new XElement("Options", newElements);
                         XDocument newDocument = new XDocument(newOptions);
-                        newDocument.Save("OptionsSettings.xml");
+                        newDocument.Save(@"..\..\Resources\OptionsSettings.xml");
                     }
                     // If the OptionsSettings xml doesn't exist, then send message.
                 }
 
-                if (File.Exists("OptionsSettings.xml"))
+                if (File.Exists(@"..\..\Resources\OptionsSettings.xml"))
                 {
-                    XDocument settingsFromXml = XDocument.Load("OptionsSettings.xml");
+                    XDocument settingsFromXml = XDocument.Load(@"..\..\Resources\OptionsSettings.xml");
                     var readDataFromXml = settingsFromXml.Descendants("option");
                     var fromXml = from x in readDataFromXml
                                   select x;
@@ -373,53 +373,53 @@ namespace BrickBreaker
                     switch (optionsSettings.MapNumber)
                     {
                         case 1:
-                            if (!File.Exists(@"maps\FirstMap.txt"))
+                            if (!File.Exists(@"..\..\Resources\maps\FirstMap.txt"))
                             {
                                 mapName = "notfound";
                             }
                             else
                             {
-                                mapName = @"maps\FirstMap.txt";
+                                mapName = @"..\..\Resources\maps\FirstMap.txt";
                             }
                             break;
                         case 2:
-                            if (!File.Exists(@"maps\SecondMap.txt"))
+                            if (!File.Exists(@"..\..\Resources\maps\SecondMap.txt"))
                             {
                                 mapName = "notfound";
                             }
                             else
                             {
-                                mapName = @"maps\SecondMap.txt";
+                                mapName = @"..\..\Resources\maps\SecondMap.txt";
                             }
                             break;
                         case 3:
-                            if (!File.Exists(@"maps\ThirdMap.txt"))
+                            if (!File.Exists(@"..\..\Resources\maps\ThirdMap.txt"))
                             {
                                 mapName = "notfound";
                             }
                             else
                             {
-                                mapName = @"maps\ThirdMap.txt";
+                                mapName = @"..\..\Resources\maps\ThirdMap.txt";
                             }
                             break;
                         case 4:
-                            if (!File.Exists(@"maps\FourthMap.txt"))
+                            if (!File.Exists(@"..\..\Resources\maps\FourthMap.txt"))
                             {
                                 mapName = "notfound";
                             }
                             else
                             {
-                                mapName = @"maps\FourthMap.txt";
+                                mapName = @"..\..\Resources\maps\FourthMap.txt";
                             }
                             break;
                         case 5:
-                            if (!File.Exists(@"maps\FifthMap.txt"))
+                            if (!File.Exists(@"..\..\Resources\maps\FifthMap.txt"))
                             {
                                 mapName = "notfound";
                             }
                             else
                             {
-                                mapName = @"maps\FifthMap.txt";
+                                mapName = @"..\..\Resources\maps\FifthMap.txt";
                             }
                             break;
                     }
@@ -456,28 +456,28 @@ namespace BrickBreaker
                                 case '.':
                                     break;
                                 case '1':
-                                    Brick brick1 = new Brick(X, Y, brickHeight, brickWidth, Brick.brickType.Easy, @"media\brick\easybrick.jpg");
+                                    Brick brick1 = new Brick(X, Y, brickHeight, brickWidth, Brick.brickType.Easy, @"..\..\Resources\media\brick\easybrick.jpg");
                                     brick1.ScorePoint = 10;
                                     brick1.BreakNumber = 1;
                                     brickList.Add(brick1);
                                     canvasLayer.Children.Add(brick1.GetRectangle());
                                     break;
                                 case '2':
-                                    Brick brick2 = new Brick(X, Y, brickHeight, brickWidth, Brick.brickType.Medium, @"media\brick\mediumbrick.jpg");
+                                    Brick brick2 = new Brick(X, Y, brickHeight, brickWidth, Brick.brickType.Medium, @"..\..\Resources\media\brick\mediumbrick.jpg");
                                     brick2.ScorePoint = 20;
                                     brick2.BreakNumber = 2;
                                     brickList.Add(brick2);
                                     canvasLayer.Children.Add(brick2.GetRectangle());
                                     break;
                                 case '3':
-                                    Brick brick3 = new Brick(X, Y, brickHeight, brickWidth, Brick.brickType.Hard, @"media\brick\hardbrick.jpg");
+                                    Brick brick3 = new Brick(X, Y, brickHeight, brickWidth, Brick.brickType.Hard, @"..\..\Resources\media\brick\hardbrick.jpg");
                                     brick3.ScorePoint = 30;
                                     brick3.BreakNumber = 5;
                                     brickList.Add(brick3);
                                     canvasLayer.Children.Add(brick3.GetRectangle());
                                     break;
                                 case '4':
-                                    Brick brick4 = new Brick(X, Y, brickHeight, brickWidth, Brick.brickType.Steel, @"media\brick\steelbrick.jpg");
+                                    Brick brick4 = new Brick(X, Y, brickHeight, brickWidth, Brick.brickType.Steel, @"..\..\Resources\media\brick\steelbrick.jpg");
                                     brick4.ScorePoint = 40;
                                     brick4.BreakNumber = 1;
                                     brickList.Add(brick4);
@@ -507,7 +507,7 @@ namespace BrickBreaker
 
             #region SetValues
 
-            mPlayer.Open(new Uri(@"media\sounds\play_this.mp3", UriKind.Relative));
+            mPlayer.Open(new Uri(@"..\..\Resources\media\sounds\play_this.mp3", UriKind.Relative));
 
             Width = int.Parse(optionsSettings.GraphicsResolution.Split('x')[0]);
             Height = int.Parse(optionsSettings.GraphicsResolution.Split('x')[1]);
@@ -515,12 +515,12 @@ namespace BrickBreaker
             canvasLayer.Height = int.Parse(optionsSettings.GraphicsResolution.Split('x')[1]) - 50;
             // Set resolution.
 
-            Racket racket = new Racket((canvasLayer.Width / 2) - (racketWidth / 2), canvasLayer.Height - racketHeight, racketHeight, racketWidth, @"media\racket\normalracket.jpg");
+            Racket racket = new Racket((canvasLayer.Width / 2) - (racketWidth / 2), canvasLayer.Height - racketHeight, racketHeight, racketWidth, @"..\..\Resources\media\racket\normalracket.jpg");
             racketList.Add(racket);
             canvasLayer.Children.Add(racket.GetRectangle());
             // First racket.
 
-            Ball ball = new Ball((canvasLayer.Width / 2) - ballRadius, canvasLayer.Height - racketHeight - (ballRadius * 2), ballRadius, Ball.ballType.Normal, @"media\ball\normalball.jpg");
+            Ball ball = new Ball((canvasLayer.Width / 2) - ballRadius, canvasLayer.Height - racketHeight - (ballRadius * 2), ballRadius, Ball.ballType.Normal, @"..\..\Resources\media\ball\normalball.jpg");
             ball.VerticalMovement = ballVerticalMovement > 0 ? ballVerticalMovement : -ballVerticalMovement;
             ball.HorizontalMovement = ballHorizontalMovement < 0 ? ballHorizontalMovement : -ballHorizontalMovement;
             ball.BallInMove = false;
@@ -700,7 +700,7 @@ namespace BrickBreaker
                                         lifePoint--;
                                         break;
                                     case Bonus.bonusType.NewBall:
-                                        Ball ball = new Ball(oneRacket.PositionX + (oneRacket.Width / 2) - ballRadius, oneRacket.PositionY - (ballRadius * 2), ballRadius, Ball.ballType.Normal, @"media\ball\normalball.jpg");
+                                        Ball ball = new Ball(oneRacket.PositionX + (oneRacket.Width / 2) - ballRadius, oneRacket.PositionY - (ballRadius * 2), ballRadius, Ball.ballType.Normal, @"..\..\Resources\media\ball\normalball.jpg");
                                         ball.VerticalMovement = ballVerticalMovement > 0 ? ballVerticalMovement : -ballVerticalMovement;
                                         ball.HorizontalMovement = ballHorizontalMovement < 0 ? ballHorizontalMovement : -ballHorizontalMovement;
                                         ball.BallInMove = false;
@@ -745,7 +745,7 @@ namespace BrickBreaker
                                         if (!oneRacket.StickyRacket)
                                         {
                                             oneRacket.StickyRacket = true;
-                                            oneRacket.RacketImage = @"media\racket\stickyracket.jpg";
+                                            oneRacket.RacketImage = @"..\..\Resources\media\racket\stickyracket.jpg";
                                         }
                                         break;
                                     case Bonus.bonusType.HardBall:
@@ -754,7 +754,7 @@ namespace BrickBreaker
                                             foreach (var oneBall in ballList)
                                             {
                                                 oneBall.TypeOfBall = Ball.ballType.Hard;
-                                                oneBall.BallImage = @"media\ball\hardball.jpg";
+                                                oneBall.BallImage = @"..\..\Resources\media\ball\hardball.jpg";
                                             }
                                         }
                                         break;
@@ -764,7 +764,7 @@ namespace BrickBreaker
                                             foreach (var oneBall in ballList)
                                             {
                                                 oneBall.TypeOfBall = Ball.ballType.Steel;
-                                                oneBall.BallImage = @"media\ball\steelball.jpg";
+                                                oneBall.BallImage = @"..\..\Resources\media\ball\steelball.jpg";
                                             }
                                         }
                                         break;
@@ -1152,11 +1152,11 @@ namespace BrickBreaker
 
                             if (oneBrick.TypeOfBrick == Brick.brickType.Hard)
                             {
-                                oneBrick.BrickImage = @"media\brick\brokenhardbrick.jpg";
+                                oneBrick.BrickImage = @"..\..\Resources\media\brick\brokenhardbrick.jpg";
                             }
                             else if (oneBrick.TypeOfBrick == Brick.brickType.Medium)
                             {
-                                oneBrick.BrickImage = @"media\brick\brokenmediumbrick.jpg";
+                                oneBrick.BrickImage = @"..\..\Resources\media\brick\brokenmediumbrick.jpg";
                             }
                         }
                     }
@@ -1212,43 +1212,43 @@ namespace BrickBreaker
             {
                 case 1:
                     type = Bonus.bonusType.BallBigger;
-                    bonusImage = @"media\bonus\ballbigger.jpg";
+                    bonusImage = @"..\..\Resources\media\bonus\ballbigger.jpg";
                     break;
                 case 2:
                     type = Bonus.bonusType.BallSmaller;
-                    bonusImage = @"media\bonus\ballsmaller.jpg";
+                    bonusImage = @"..\..\Resources\media\bonus\ballsmaller.jpg";
                     break;
                 case 3:
                     type = Bonus.bonusType.HardBall;
-                    bonusImage = @"media\bonus\hardball.jpg";
+                    bonusImage = @"..\..\Resources\media\bonus\hardball.jpg";
                     break;
                 case 4:
                     type = Bonus.bonusType.LifeDown;
-                    bonusImage = @"media\bonus\lifedown.jpg";
+                    bonusImage = @"..\..\Resources\media\bonus\lifedown.jpg";
                     break;
                 case 5:
                     type = Bonus.bonusType.LifeUp;
-                    bonusImage = @"media\bonus\lifeup.jpg";
+                    bonusImage = @"..\..\Resources\media\bonus\lifeup.jpg";
                     break;
                 case 6:
                     type = Bonus.bonusType.NewBall;
-                    bonusImage = @"media\bonus\newball.jpg";
+                    bonusImage = @"..\..\Resources\media\bonus\newball.jpg";
                     break;
                 case 7:
                     type = Bonus.bonusType.RacketLengthen;
-                    bonusImage = @"media\bonus\racketlengthen.jpg";
+                    bonusImage = @"..\..\Resources\media\bonus\racketlengthen.jpg";
                     break;
                 case 8:
                     type = Bonus.bonusType.RacketShorten;
-                    bonusImage = @"media\bonus\racketshorten.jpg";
+                    bonusImage = @"..\..\Resources\media\bonus\racketshorten.jpg";
                     break;
                 case 9:
                     type = Bonus.bonusType.SteelBall;
-                    bonusImage = @"media\bonus\steelball.jpg";
+                    bonusImage = @"..\..\Resources\media\bonus\steelball.jpg";
                     break;
                 case 10:
                     type = Bonus.bonusType.StickyRacket;
-                    bonusImage = @"media\bonus\stickyracket.jpg";
+                    bonusImage = @"..\..\Resources\media\bonus\stickyracket.jpg";
                     break;
             }
 
@@ -1272,12 +1272,12 @@ namespace BrickBreaker
             bonusList.Clear();
             // Dispose balls, rackets, bonuses.
 
-            Racket racket = new Racket((canvasLayer.Width / 2) - (racketWidth / 2), canvasLayer.Height - racketHeight, racketHeight, racketWidth, @"media\racket\normalracket.jpg");
+            Racket racket = new Racket((canvasLayer.Width / 2) - (racketWidth / 2), canvasLayer.Height - racketHeight, racketHeight, racketWidth, @"..\..\Resources\media\racket\normalracket.jpg");
             racketList.Add(racket);
             canvasLayer.Children.Add(racket.GetRectangle());
             // Add new racket.
 
-            Ball ball = new Ball((canvasLayer.Width / 2) - ballRadius, canvasLayer.Height - racketHeight - (ballRadius * 2), ballRadius, Ball.ballType.Normal, @"media\ball\normalball.jpg");
+            Ball ball = new Ball((canvasLayer.Width / 2) - ballRadius, canvasLayer.Height - racketHeight - (ballRadius * 2), ballRadius, Ball.ballType.Normal, @"..\..\Resources\media\ball\normalball.jpg");
             ball.VerticalMovement = ballVerticalMovement > 0 ? ballVerticalMovement : -ballVerticalMovement;
             ball.HorizontalMovement = ballHorizontalMovement < 0 ? ballHorizontalMovement : -ballHorizontalMovement;
 // TODO: bug at new ball movement
@@ -1714,7 +1714,7 @@ namespace BrickBreaker
                     {
                         try
                         {
-                            XDocument settingsFromXml = XDocument.Load("OptionsSettings.xml");
+                            XDocument settingsFromXml = XDocument.Load(@"..\..\Resources\OptionsSettings.xml");
                             var readDataFromXml = settingsFromXml.Descendants("option");
                             var fromXml = from x in readDataFromXml
                                           select x;
@@ -1723,7 +1723,7 @@ namespace BrickBreaker
                             fromXml.Single().Element("map").Value = (optionsSettings.MapNumber + 1).ToString();
                             // Sets the number of the map to the xml for later use.
 
-                            settingsFromXml.Save("OptionsSettings.xml");
+                            settingsFromXml.Save(@"..\..\Resources\OptionsSettings.xml");
                             // Save the changes in the values of the xml.
                         }
                         catch
@@ -1777,9 +1777,9 @@ namespace BrickBreaker
         {
             bool retVal = false;
 
-            if (File.Exists("Scores.xml"))
+            if (File.Exists(@"..\..\Resources\Scores.xml"))
             {
-                XDocument settingsFromXml = XDocument.Load("Scores.xml");
+                XDocument settingsFromXml = XDocument.Load(@"..\..\Resources\Scores.xml");
                 var readDataFromXml = settingsFromXml.Descendants("Data");
                 var fromXml = from x in readDataFromXml
                               select x;

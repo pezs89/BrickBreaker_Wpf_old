@@ -21,7 +21,7 @@ namespace BrickBreaker
             
             #region SetValues
 
-            InfoTxtBlock.Text = "Name: Péter Zsolt" + "\n" + "Neptun: GZOG8N" + "\n" + "Application: Brick Breaker" + "\n" + "Version no.: 1.0";
+            InfoTxtBlock.Text = "Name: " + "\n" + "Neptun: " + "\n" + "Application: Brick Breaker" + "\n" + "Version no.: 1.0";
             PressKeyTxtBlock.Text = "Press ESC to continue...";
 
             #endregion SetValues

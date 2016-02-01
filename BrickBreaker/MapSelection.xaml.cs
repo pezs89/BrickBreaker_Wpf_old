@@ -32,23 +32,23 @@ namespace BrickBreaker
         /// </summary>
         private void CheckForFiles()
         {
-            if (!File.Exists(@"maps\FirstMap.txt"))
+            if (!File.Exists(@"..\..\Resources\maps\FirstMap.txt"))
             {
                 firstMap_Diff.IsEnabled = false;
             }
-            if (!File.Exists(@"maps\SecondMap.txt"))
+            if (!File.Exists(@"..\..\Resources\maps\SecondMap.txt"))
             {
                 secondMap_Diff.IsEnabled = false;
             }
-            if (!File.Exists(@"maps\ThirdMap.txt"))
+            if (!File.Exists(@"..\..\Resources\maps\ThirdMap.txt"))
             {
                 thirdMap_Diff.IsEnabled = false;
             }
-            if (!File.Exists(@"maps\FourthMap.txt"))
+            if (!File.Exists(@"..\..\Resources\maps\FourthMap.txt"))
             {
                 fourthMap_Diff.IsEnabled = false;
             }
-            if (!File.Exists(@"maps\FifthMap.txt"))
+            if (!File.Exists(@"..\..\Resources\maps\FifthMap.txt"))
             {
                 fifthMap_Diff.IsEnabled = false;
             }
@@ -60,7 +60,7 @@ namespace BrickBreaker
             }
             // If all the buttons are disabled, then send a message.
 
-            if (!File.Exists("OptionsSettings.xml"))
+            if (!File.Exists(@"..\..\Resources\OptionsSettings.xml"))
             {
                 if (MessageBox.Show("Couldn't find the xml file for the settings. \n Would you like to create a new with default settings?", "Error", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
@@ -78,7 +78,7 @@ namespace BrickBreaker
                     XElement newElements = new XElement("option", newAttribute, mouseElement, keyboardElement, soundElement, resolutionElement, leftkeyElement, rightkeyElement, firekeyElement, pausekeyElement, difficultyElement, mapElement);
                     XElement newOptions = new XElement("Options", newElements);
                     XDocument newDocument = new XDocument(newOptions);
-                    newDocument.Save("OptionsSettings.xml");
+                    newDocument.Save(@"..\..\Resources\OptionsSettings.xml");
                 }
             }
             // If the OptionsSettings xml doesn't exist, then send message.
@@ -107,7 +107,7 @@ namespace BrickBreaker
         {
             try
             {
-                XDocument settingsFromXml = XDocument.Load("OptionsSettings.xml");
+                XDocument settingsFromXml = XDocument.Load(@"..\..\Resources\OptionsSettings.xml");
                 var readDataFromXml = settingsFromXml.Descendants("option");
                 var fromXml = from x in readDataFromXml
                               select x;
@@ -116,7 +116,7 @@ namespace BrickBreaker
                 fromXml.Single().Element("map").Value = "1";
                 // Sets the number of the map to the xml for later use.
 
-                settingsFromXml.Save("OptionsSettings.xml");
+                settingsFromXml.Save(@"..\..\Resources\OptionsSettings.xml");
                 // Save the changes in the values of the xml.
             }
             catch
@@ -139,7 +139,7 @@ namespace BrickBreaker
         {
             try
             {
-                XDocument settingsFromXml = XDocument.Load("OptionsSettings.xml");
+                XDocument settingsFromXml = XDocument.Load(@"..\..\Resources\OptionsSettings.xml");
                 var readDataFromXml = settingsFromXml.Descendants("option");
                 var fromXml = from x in readDataFromXml
                               select x;
@@ -148,7 +148,7 @@ namespace BrickBreaker
                 fromXml.Single().Element("map").Value = "2";
                 // Sets the number of the map to the xml for later use.
 
-                settingsFromXml.Save("OptionsSettings.xml");
+                settingsFromXml.Save(@"..\..\Resources\OptionsSettings.xml");
                 // Save the changes in the values of the xml.
             }
             catch
@@ -171,7 +171,7 @@ namespace BrickBreaker
         {
             try
             {
-                XDocument settingsFromXml = XDocument.Load("OptionsSettings.xml");
+                XDocument settingsFromXml = XDocument.Load(@"..\..\Resources\OptionsSettings.xml");
                 var readDataFromXml = settingsFromXml.Descendants("option");
                 var fromXml = from x in readDataFromXml
                               select x;
@@ -180,7 +180,7 @@ namespace BrickBreaker
                 fromXml.Single().Element("map").Value = "3";
                 // Sets the number of the map to the xml for later use.
 
-                settingsFromXml.Save("OptionsSettings.xml");
+                settingsFromXml.Save(@"..\..\Resources\OptionsSettings.xml");
                 // Save the changes in the values of the xml.
             }
             catch
@@ -203,7 +203,7 @@ namespace BrickBreaker
         {
             try
             {
-                XDocument settingsFromXml = XDocument.Load("OptionsSettings.xml");
+                XDocument settingsFromXml = XDocument.Load(@"..\..\Resources\OptionsSettings.xml");
                 var readDataFromXml = settingsFromXml.Descendants("option");
                 var fromXml = from x in readDataFromXml
                               select x;
@@ -212,7 +212,7 @@ namespace BrickBreaker
                 fromXml.Single().Element("map").Value = "4";
                 // Sets the number of the map to the xml for later use.
 
-                settingsFromXml.Save("OptionsSettings.xml");
+                settingsFromXml.Save(@"..\..\Resources\OptionsSettings.xml");
                 // Save the changes in the values of the xml.
             }
             catch
@@ -235,7 +235,7 @@ namespace BrickBreaker
         {
             try
             {
-                XDocument settingsFromXml = XDocument.Load("OptionsSettings.xml");
+                XDocument settingsFromXml = XDocument.Load(@"..\..\Resources\OptionsSettings.xml");
                 var readDataFromXml = settingsFromXml.Descendants("option");
                 var fromXml = from x in readDataFromXml
                               select x;
@@ -244,7 +244,7 @@ namespace BrickBreaker
                 fromXml.Single().Element("map").Value = "5";
                 // Sets the number of the map to the xml for later use.
 
-                settingsFromXml.Save("OptionsSettings.xml");
+                settingsFromXml.Save(@"..\..\Resources\OptionsSettings.xml");
                 // Save the changes in the values of the xml.
             }
             catch
